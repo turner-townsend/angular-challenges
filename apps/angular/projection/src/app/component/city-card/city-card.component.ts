@@ -16,7 +16,7 @@ import { ListItemComponent } from '../../ui/list-item/list-item.component';
     <app-list-item
       *cardListContentDef="let city; list: card.list"
       [id]="city.id"
-      (delete)="deleteCity($event)">
+      (delete)="deleteCity(city.id)">
       {{ city.name }}
     </app-list-item>
   </app-card>`,
