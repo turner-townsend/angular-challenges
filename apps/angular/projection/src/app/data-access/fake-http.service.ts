@@ -12,11 +12,11 @@ import {
 import { map, timer } from 'rxjs';
 import { City } from '../model/city.model';
 import { Student } from '../model/student.model';
-import { subject, Teacher } from '../model/teacher.model';
+import { Teacher, subject } from '../model/teacher.model';
 
 const factoryTeacher = incrementalNumber();
 
-export const randTeacher = () => ({
+export const randTeacher = (): Teacher => ({
   id: factoryTeacher(),
   firstname: randFirstName(),
   lastname: randLastName(),
