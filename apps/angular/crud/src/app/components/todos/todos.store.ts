@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
-import { ComponentStore } from '@ngrx/component-store';
 import { concatLatestFrom } from '@ngrx/effects';
+import { CallStateComponentStore } from '@tomalaforge/ngrx-callstate-store';
 import { catchError, switchMap, tap } from 'rxjs/operators';
 import { Todo } from '../../shared/models/todo.interface';
 import { ApiService } from '../../shared/services/api.service';
@@ -16,7 +16,7 @@ const initialState: TodosState = {
 };
 
 @Injectable({ providedIn: 'root' })
-export class TodosStore extends ComponentStore<TodosState> {
+export class TodosStore extends CallStateComponentStore<TodosState> {
   readonly #apiService = inject(ApiService);
   readonly #errorHandlerService = inject(ErrorHandlerService);
 
@@ -62,6 +62,7 @@ export class TodosStore extends ComponentStore<TodosState> {
             this.setLoading(false);
           }),
           catchError((error) => {
+            this.handleError(error);
             this.#errorHandlerService.handleError(error);
             return [];
           }),
