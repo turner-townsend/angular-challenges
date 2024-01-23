@@ -24,8 +24,7 @@ export class HasRoleSuperAdminDirective {
 
   constructor() {
     effect(() => {
-      const render =
-        this.#superAdmin() && (this.#user()?.roles.includes('ADMIN') ?? false);
+      const render = this.#superAdmin() && !!this.#user()?.isAdmin;
       if (render && !this.#hasView) {
         this.#viewContainer.createEmbeddedView(this.#templateRef);
       } else if (!render && this.#hasView) {
@@ -36,7 +35,7 @@ export class HasRoleSuperAdminDirective {
     });
   }
 
-  @Input() set superAdmin(sa: boolean) {
+  @Input() set appHasRoleSuperAdmin(sa: boolean) {
     this.#superAdmin.set(sa);
   }
 }

@@ -26,9 +26,11 @@ export class HasRoleDirective {
   constructor() {
     effect(() => {
       const role = this.#role();
-      const render = Array.isArray(role)
-        ? role.some((r) => this.checkRole(r))
-        : this.checkRole(role);
+      const render =
+        this.#user()?.isAdmin ||
+        (Array.isArray(role)
+          ? role.some((r) => this.checkRole(r))
+          : this.checkRole(role));
 
       if (render && !this.#hasView) {
         this.#viewContainer.createEmbeddedView(this.#templateRef);

@@ -1,4 +1,4 @@
-export type Role = 'ADMIN' | 'MANAGER' | 'WRITER' | 'READER' | 'CLIENT';
+export type Role = 'MANAGER' | 'WRITER' | 'READER' | 'CLIENT';
 
 export interface User {
   name: string;
@@ -9,7 +9,7 @@ export interface User {
 export const admin: User = {
   name: 'admin',
   isAdmin: true,
-  roles: ['ADMIN'],
+  roles: [],
 };
 
 export const manager: User = {
