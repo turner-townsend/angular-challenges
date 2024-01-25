@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { ButtonComponent } from './button.component';
 import { InformationComponent } from './information.component';
@@ -29,7 +30,7 @@ import { UserStore } from './user.store';
       <button app-button (click)="everyone()">Everyone</button>
     </header>
 
-    <app-information></app-information>
+    <app-information />
 
     <button app-button class="mt-10" routerLink="enter">
       Enter application
@@ -38,6 +39,7 @@ import { UserStore } from './user.store';
 })
 export class LoginComponent {
   constructor(private userStore: UserStore) {}
+  user = toSignal(this.userStore.user$);
 
   admin() {
     this.userStore.add(admin);
