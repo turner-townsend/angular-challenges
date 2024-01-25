@@ -1,9 +1,12 @@
 import { TOKEN } from '@angular-challenges/module-to-standalone/core/providers';
 import { AuthorizationService } from '@angular-challenges/module-to-standalone/core/service';
+import { CommonModule } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'lib-home',
+  standalone: true,
+  imports: [CommonModule],
   template: `
     Home component
 
