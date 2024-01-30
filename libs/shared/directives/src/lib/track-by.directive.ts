@@ -1,6 +1,13 @@
 /* eslint-disable @angular-eslint/directive-selector */
-import { NgForOf } from '@angular/common';
-import { Directive, Input, NgIterable, Provider, inject } from '@angular/core';
+import { NgFor, NgForOf } from '@angular/common';
+import {
+  Directive,
+  Input,
+  NgIterable,
+  NgModule,
+  Provider,
+  inject,
+} from '@angular/core';
 
 @Directive({
   selector: '[ngForTrackByProp]',
@@ -36,3 +43,9 @@ export const NgForTrackByDirective: Provider[] = [
   NgForTrackByIdDirective,
   NgForTrackByPropDirective,
 ];
+
+@NgModule({
+  imports: [NgFor, NgForTrackByDirective],
+  exports: [NgFor, NgForTrackByDirective],
+})
+export class NgForTrackByModule {}
