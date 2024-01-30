@@ -6,12 +6,8 @@ import { UserShellComponent } from './user-shell.component';
 import { userShellRoutes } from './user-shell.routes';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(userShellRoutes),
-    RouterModule,
-    UserShellComponent,
-  ],
+  imports: [CommonModule, RouterModule.forChild(userShellRoutes), RouterModule],
+  declarations: [UserShellComponent],
   providers: [provideToken('user-token')],
 })
 export class UserShellModule {}

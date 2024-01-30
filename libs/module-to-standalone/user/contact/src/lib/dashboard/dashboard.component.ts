@@ -1,5 +1,5 @@
 import { Component, NgModule } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'lib-contact-dashboard',
@@ -12,15 +12,13 @@ import { RouterLink, RouterModule } from '@angular/router';
       Create contact
     </button>
   `,
-  standalone: true,
-  imports: [RouterLink],
 })
 export class ContactDashboardComponent {}
 
 @NgModule({
   imports: [
     RouterModule.forChild([{ path: '', component: ContactDashboardComponent }]),
-    ContactDashboardComponent,
   ],
+  declarations: [ContactDashboardComponent],
 })
 export class ContactDashboardModule {}
