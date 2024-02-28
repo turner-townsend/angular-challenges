@@ -1,5 +1,6 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, InjectionToken } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { DEFAULT_TIMER } from './data';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -10,3 +11,7 @@ export const appConfig: ApplicationConfig = {
     ]),
   ],
 };
+
+export const TIMER_DATA = new InjectionToken<number>('timer_data', {
+  factory: () => DEFAULT_TIMER,
+});
