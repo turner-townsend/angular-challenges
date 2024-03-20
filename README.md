@@ -24,7 +24,7 @@ If you would like to propose a challenge, this project is open source, so feel f
 
 ## Challenges
 
-Check [all 46 challenges](https://angular-challenges.vercel.app/)
+Check [all 47 challenges](https://angular-challenges.vercel.app/)
 
 ## Contributors ✨
 
@@ -35,11 +35,11 @@ Check [all 46 challenges](https://angular-challenges.vercel.app/)
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://thomaslaforge.dev/home"><img src="https://avatars.githubusercontent.com/u/30832608?v=4?s=100" width="100px;" alt="Laforge Thomas"/><br /><sub><b>Laforge Thomas</b></sub></a><br /><a href="#challenge-tomalaforge" title="Create a challenge">🧩</a> <a href="https://github.com/tomalaforge/angular-challenges/commits?author=tomalaforge" title="Code">💻</a> <a href="https://github.com/tomalaforge/angular-challenges/commits?author=tomalaforge" title="Documentation">📖</a> <a href="#content-tomalaforge" title="Content">🖋</a> <a href="#ideas-tomalaforge" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-tomalaforge" title="Design">🎨</a> <a href="#translation-fr-tomalaforge" title="Translate in French">🇫🇷</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://svenson95.github.io/sb-portfolio/"><img src="https://avatars.githubusercontent.com/u/46655156?v=4?s=100" width="100px;" alt="Sven Brodny"/><br /><sub><b>Sven Brodny</b></sub></a><br /><a href="https://github.com/tomalaforge/angular-challenges/commits?author=svenson95" title="Documentation">📖</a> <a href="#challenge-svenson95" title="Create a challenge">🧩</a> <a href="#content-svenson95" title="Content">🖋</a> <a href="#design-svenson95" title="Design">🎨</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/jdegand"><img src="https://avatars.githubusercontent.com/u/70610011?v=4?s=100" width="100px;" alt="J. Degand"/><br /><sub><b>J. Degand</b></sub></a><br /><a href="https://github.com/tomalaforge/angular-challenges/commits?author=jdegand" title="Documentation">📖</a> <a href="#content-jdegand" title="Content">🖋</a> <a href="https://github.com/tomalaforge/angular-challenges/commits?author=jdegand" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/DeveshChau"><img src="https://avatars.githubusercontent.com/u/9509673?v=4?s=100" width="100px;" alt="Devesh Chaudhari"/><br /><sub><b>Devesh Chaudhari</b></sub></a><br /><a href="https://github.com/tomalaforge/angular-challenges/commits?author=DeveshChau" title="Code">💻</a> <a href="https://github.com/tomalaforge/angular-challenges/issues?q=author%3ADeveshChau" title="Bug reports">🐛</a> <a href="#challenge-DeveshChau" title="Create a challenge">🧩</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/stillst"><img src="https://avatars.githubusercontent.com/u/1463098?v=4?s=100" width="100px;" alt="stillst"/><br /><sub><b>stillst</b></sub></a><br /><a href="#challenge-stillst" title="Create a challenge">🧩</a> <a href="#translation-ru-stillst" title="Translate in Russian">🇷🇺</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://wandrille-guesdon.com/"><img src="https://avatars.githubusercontent.com/u/15016833?v=4?s=100" width="100px;" alt="Wandrille"/><br /><sub><b>Wandrille</b></sub></a><br /><a href="#challenge-wandri" title="Create a challenge">🧩</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://svenson95.github.io/sb-portfolio/"><img src="https://avatars.githubusercontent.com/u/46655156?v=4?s=100" width="100px;" alt="Sven Brodny"/><br /><sub><b>Sven Brodny</b></sub></a><br /><a href="https://github.com/tomalaforge/angular-challenges/commits?author=svenson95" title="Documentation">📖</a> <a href="#challenge-svenson95" title="Create a challenge">🧩</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/alan-bio"><img src="https://avatars.githubusercontent.com/u/31838230?v=4?s=100" width="100px;" alt="Alan Dragicevich"/><br /><sub><b>Alan Dragicevich</b></sub></a><br /><a href="https://github.com/tomalaforge/angular-challenges/commits?author=alan-bio" title="Documentation">📖</a></td>
     </tr>
     <tr>
@@ -57,6 +57,7 @@ Check [all 46 challenges](https://angular-challenges.vercel.app/)
       <td align="center" valign="top" width="14.28%"><a href="http://www.streamoverlaypro.com"><img src="https://avatars.githubusercontent.com/u/1978642?v=4?s=100" width="100px;" alt="Erick Rodriguez"/><br /><sub><b>Erick Rodriguez</b></sub></a><br /><a href="#translation-es-ErickRodrCodes" title="Translate in Spanish">🇪🇸</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://eduardoroth.dev"><img src="https://avatars.githubusercontent.com/u/5419161?v=4?s=100" width="100px;" alt="Eduardo Roth"/><br /><sub><b>Eduardo Roth</b></sub></a><br /><a href="https://github.com/tomalaforge/angular-challenges/commits?author=eduardoRoth" title="Documentation">📖</a> <a href="#translation-es-eduardoRoth" title="Translate in Spanish">🇪🇸</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/1fbr"><img src="https://avatars.githubusercontent.com/u/63980689?v=4?s=100" width="100px;" alt="Fernando Bello"/><br /><sub><b>Fernando Bello</b></sub></a><br /><a href="https://github.com/tomalaforge/angular-challenges/commits?author=1fbr" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/webbomj"><img src="https://avatars.githubusercontent.com/u/86595717?v=4?s=100" width="100px;" alt="Лапин Андрей (Lapin Andrey)"/><br /><sub><b>Лапин Андрей (Lapin Andrey)</b></sub></a><br /><a href="#translation-ru" title="Translate in Russian">🇷🇺</a></td>
     </tr>
   </tbody>
   <tfoot>
