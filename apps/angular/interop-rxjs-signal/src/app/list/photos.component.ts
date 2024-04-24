@@ -6,10 +6,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { RouterLinkWithHref } from '@angular/router';
 import { LetDirective } from '@ngrx/component';
-import { provideComponentStore } from '@ngrx/component-store';
-import { debounceTime, distinctUntilChanged, skipWhile, tap } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { Photo } from '../photo.model';
-import { PhotoStore } from './photos.store';
+import { PhotosStore } from './+store';
+import { EncodePipe } from './encode.pipe';
 
 @Component({
   selector: 'app-photos',
@@ -23,6 +23,7 @@ import { PhotoStore } from './photos.store';
     MatInputModule,
     LetDirective,
     RouterLinkWithHref,
+    EncodePipe,
   ],
   template: `
     <h2 class="mb-2 text-xl">Photos</h2>
@@ -36,34 +37,34 @@ import { PhotoStore } from './photos.store';
         placeholder="find a photo" />
     </mat-form-field>
 
-    <ng-container *ngrxLet="vm$ as vm">
+    <ng-container>
       <section class="flex flex-col">
         <section class="flex items-center gap-3">
           <button
-            [disabled]="vm.page === 1"
-            [class.bg-gray-400]="vm.page === 1"
+            [disabled]="store.page() === 1"
+            [class.bg-gray-400]="store.page() === 1"
             class="rounded-md border p-3 text-xl"
             (click)="store.previousPage()">
             <
           </button>
           <button
-            [disabled]="vm.endOfPage"
-            [class.bg-gray-400]="vm.endOfPage"
+            [disabled]="store.endOfPage()"
+            [class.bg-gray-400]="store.endOfPage()"
             class="rounded-md border p-3 text-xl"
             (click)="store.nextPage()">
             >
           </button>
-          Page :{{ vm.page }} / {{ vm.pages }}
+          Page :{{ store.page() }} / {{ store.pages() }}
         </section>
         <mat-progress-bar
           mode="query"
-          *ngIf="vm.loading"
+          *ngIf="store.loading()"
           class="mt-5"></mat-progress-bar>
         <ul
           class="flex flex-wrap gap-4"
-          *ngIf="vm.photos && vm.photos.length > 0; else noPhoto">
-          <li *ngFor="let photo of vm.photos; trackBy: trackById">
-            <a routerLink="detail" [queryParams]="{ photo: encode(photo) }">
+          *ngIf="store.photos() && store.photos().length > 0; else noPhoto">
+          <li *ngFor="let photo of store.photos(); trackBy: trackById">
+            <a routerLink="detail" [queryParams]="{ photo: photo | encode }">
               <img
                 src="{{ photo.url_q }}"
                 alt="{{ photo.title }}"
@@ -75,45 +76,30 @@ import { PhotoStore } from './photos.store';
           <div>No Photos found. Type a search word.</div>
         </ng-template>
         <footer class="text-red-500">
-          {{ vm.error }}
+          {{ store.error() }}
         </footer>
       </section>
     </ng-container>
   `,
-  providers: [provideComponentStore(PhotoStore)],
+  providers: [PhotosStore],
   host: {
     class: 'p-5 block',
   },
 })
 export default class PhotosComponent implements OnInit {
-  store = inject(PhotoStore);
-  readonly vm$ = this.store.vm$.pipe(
-    tap(({ search }) => {
-      if (!this.formInit) {
-        this.search.setValue(search);
-        this.formInit = true;
-      }
-    }),
-  );
+  readonly store = inject(PhotosStore);
 
-  private formInit = false;
-  search = new FormControl();
+  readonly search = new FormControl();
 
   ngOnInit(): void {
-    this.store.search(
-      this.search.valueChanges.pipe(
-        skipWhile(() => !this.formInit),
-        debounceTime(300),
-        distinctUntilChanged(),
-      ),
+    this.store.initializeSearch((search) => this.search.setValue(search));
+
+    this.store.searchByText(
+      this.search.valueChanges.pipe(debounceTime(300), distinctUntilChanged()),
     );
   }
 
-  trackById(index: number, photo: Photo) {
+  trackById(_index: number, photo: Photo) {
     return photo.id;
-  }
-
-  encode(photo: Photo) {
-    return encodeURIComponent(JSON.stringify(photo));
   }
 }
