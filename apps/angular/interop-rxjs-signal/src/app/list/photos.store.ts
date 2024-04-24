@@ -35,6 +35,7 @@ export class PhotoStore
   extends ComponentStore<PhotoState>
   implements OnStoreInit, OnStateInit
 {
+  // DONE
   private photoService = inject(PhotoService);
 
   private readonly photos$ = this.select((s) => s.photos);
@@ -44,6 +45,7 @@ export class PhotoStore
   private readonly error$ = this.select((s) => s.error);
   private readonly loading$ = this.select((s) => s.loading);
 
+  // DONE
   private readonly endOfPage$ = this.select(
     this.page$,
     this.pages$,
@@ -63,6 +65,7 @@ export class PhotoStore
     { debounce: true },
   );
 
+  // DONE
   ngrxOnStoreInit() {
     const savedJSONState = localStorage.getItem(PHOTO_STATE_KEY);
     if (savedJSONState === null) {
@@ -77,6 +80,7 @@ export class PhotoStore
     }
   }
 
+  // DONE?
   ngrxOnStateInit() {
     this.searchPhotos(
       this.select({
@@ -86,6 +90,7 @@ export class PhotoStore
     );
   }
 
+  // DONE
   readonly search = this.updater(
     (state, search: string): PhotoState => ({
       ...state,
@@ -94,6 +99,7 @@ export class PhotoStore
     }),
   );
 
+  // DONE
   readonly nextPage = this.updater(
     (state): PhotoState => ({
       ...state,
@@ -101,6 +107,7 @@ export class PhotoStore
     }),
   );
 
+  // DONE
   readonly previousPage = this.updater(
     (state): PhotoState => ({
       ...state,
@@ -108,6 +115,7 @@ export class PhotoStore
     }),
   );
 
+  // DONE
   readonly searchPhotos = this.effect<{ search: string; page: number }>(
     pipe(
       filter(({ search }) => search.length >= 3),
