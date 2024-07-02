@@ -41,11 +41,27 @@ export class AppComponent {
   gpu = model(false);
 
   constructor() {
-    /* 
+    /*
       Explain for your junior team mate why this bug occurs ...
+
+      Short circuiting. Once this.drive() becomes true, the other signals are not evaluated/considered until this.drive() becomes false again.
+      ALSO, this logic will alert if all three are checked and drive is subsequently unchecked. This is not the expected behavior.
     */
+
     effect(() => {
-      if (this.drive() || this.ram() || this.gpu()) {
+      if (this.drive()) {
+        alert('Price increased!');
+      }
+    });
+
+    effect(() => {
+      if (this.ram()) {
+        alert('Price increased!');
+      }
+    });
+
+    effect(() => {
+      if (this.gpu()) {
         alert('Price increased!');
       }
     });
