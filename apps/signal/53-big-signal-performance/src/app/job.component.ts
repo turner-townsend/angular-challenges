@@ -1,6 +1,6 @@
 import { CDFlashingDirective } from '@angular-challenges/shared/directives';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { UserStore } from './user.service';
+import { UserStore } from './user.store';
 
 @Component({
   selector: 'job',
@@ -8,8 +8,8 @@ import { UserStore } from './user.service';
   template: `
     <div cd-flash class="m-4 block border border-gray-500 p-4">
       Job:
-      <div>title: {{ userService.user().title }}</div>
-      <div>salary: {{ userService.user().salary }}</div>
+      <div>title: {{ userService.title() }}</div>
+      <div>salary: {{ userService.salary() }}</div>
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
