@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { HeavyCalculationService } from './heavy-calculation.service';
 import { UnknownPersonComponent } from './unknown-person/unknown-person.component';
 
@@ -24,9 +24,26 @@ import { UnknownPersonComponent } from './unknown-person/unknown-person.componen
 export class AppComponent {
   private heavyCalculationService = inject(HeavyCalculationService);
 
-  readonly loadingPercentage = this.heavyCalculationService.loadingPercentage;
+  readonly loading = signal(0);
+
+  readonly loadingPercentage = computed(() =>
+    Math.floor(
+      this.loading() || this.heavyCalculationService.loadingPercentage(),
+    ),
+  );
 
   discover() {
-    this.heavyCalculationService.startLoading();
+    if (typeof Worker !== 'undefined') {
+      // Create a new
+      const worker = new Worker(new URL('./app.worker', import.meta.url));
+      worker.onmessage = ({ data }) => {
+        console.log('=>(app.component.ts:38) data', data);
+        this.loading.set(data);
+      };
+      worker.postMessage('hello');
+    } else {
+      // Web workers are not supported in this environment.
+      this.heavyCalculationService.startLoading();
+    }
   }
 }
