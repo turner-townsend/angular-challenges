@@ -6,6 +6,15 @@ const ruleTester = new TSESLint.RuleTester({
 });
 
 ruleTester.run(RULE_NAME, rule, {
-  valid: [`const example = true;`],
-  invalid: [],
+  valid: [`type Foo = 'A' | 'B' | 'C';`],
+  invalid: [
+    {
+      code: `enum Foo { A, B, C }`,
+      errors: [
+        {
+          messageId: 'forbidden-enum',
+        },
+      ],
+    },
+  ],
 });

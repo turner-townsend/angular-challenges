@@ -28,10 +28,19 @@ export const rule = ESLintUtils.RuleCreator(() => __filename)({
       recommended: 'recommended',
     },
     schema: [],
-    messages: {},
+    messages: {
+      'forbidden-enum': 'Enums are forbidden, use a union instead.',
+    },
   },
   defaultOptions: [],
   create(context) {
-    return {};
+    return {
+      TSEnumDeclaration(node) {
+        context.report({
+          node,
+          messageId: 'forbidden-enum',
+        });
+      },
+    };
   },
 });
