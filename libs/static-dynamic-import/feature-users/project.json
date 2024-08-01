@@ -1,7 +1,7 @@
 {
-  "name": "users",
+  "name": "feature-users",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/static-dynamic-import/users/src",
+  "sourceRoot": "libs/static-dynamic-import/feature-users/src",
   "prefix": "sdi",
   "projectType": "library",
   "tags": [],

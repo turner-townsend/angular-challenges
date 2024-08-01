@@ -9,7 +9,7 @@ export const appConfig: ApplicationConfig = {
       {
         path: '',
         loadComponent: () =>
-          import('@angular-challenges/static-dynamic-import/users'),
+          import('@angular-challenges/static-dynamic-import/feature-users'),
       },
     ]),
   ],
